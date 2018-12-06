@@ -11,16 +11,22 @@ libhdf5-openmpi-dev \
 libx11-dev \
 python-matplotlib \
 python-sympy \
-python-tables
+python-tables -y
 
-CODENAME=`lsb_release -c | awk 'END {print $NF}'`
-if   [ $CODENAME == 'xenial' -o $CODENAME == 'loki' ]; then
-  HDF_INCLUDE='--with-include=/usr/include/hdf5/openmpi'
-  MPI_INCLUDE='--with-include=/usr/lib/openmpi/include'
-  HDF_LIB='--with-lib=/usr/lib/x86_64-linux-gnu/hdf5/openmpi'
-elif [ $CODENAME == 'trusty' ]; then
-  HDF_INCLUDE='--with-include=/usr/include/openmpi'
-fi
+# Will prompt error under sh
+# CODENAME=`lsb_release -c | awk 'END {print $NF}'`
+# if [ $CODENAME == 'xenial' -o $CODENAME == 'loki' ]; then
+#   HDF_INCLUDE='--with-include=/usr/include/hdf5/openmpi'
+#   MPI_INCLUDE='--with-include=/usr/lib/openmpi/include'
+#   HDF_LIB='--with-lib=/usr/lib/x86_64-linux-gnu/hdf5/openmpi'
+# elif [ $CODENAME == 'trusty' ]; then
+#   HDF_INCLUDE='--with-include=/usr/include/openmpi'
+# fi
+
+# 
+HDF_INCLUDE='--with-include=/usr/include/hdf5/openmpi'
+MPI_INCLUDE='--with-include=/usr/lib/openmpi/include'
+HDF_LIB='--with-lib=/usr/lib/x86_64-linux-gnu/hdf5/openmpi'
 
 
 destination=$HOME/opt/sparx

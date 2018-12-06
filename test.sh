@@ -29,6 +29,7 @@ case $CASE in
     "P2A")
         #source ../benchmark/2002_p2a_benchmark/test $SAVE_LOG
         \cp ../../preprocessor/presparx/P2A/* ./
+        cp ../../preprocessor/presparx/P2A/* ./
         presparx -o model -p
         
         
